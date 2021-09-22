@@ -1,8 +1,24 @@
 {
   "name": "Gather",
-  "description": "Senior Design Project",
+  "description": "In a time where people can find themselves spending a lot of their free time online and away relatives or friends, this app can help bring people together while to share an experience while staying within the comfort of their home or daily routine.",
   "version": "0.0.1",
   "manifest_version": 3,
+  "permissions": [
+    "declarativeContent",
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
+
+  "page_action": {
+        "default_icon": {
+          "16": "images/16gather.png",
+          "48": "images/48gather.png",
+          "128": "images/128gather.png"
+        },
+        "default_title": "Gather",
+        "default_popup": "popup.html"
+    },
 
   "background": {
     "service_worker": "./background.js"
