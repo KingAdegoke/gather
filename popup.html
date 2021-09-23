@@ -1,1 +1,71 @@
 <!-- default page for gather extension -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>devAims</title>
+    <!-- Attaching bootsrap.css and Font Awesome Icons in Popup -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="vendor/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- Attaching popup.css in Popup -->
+    <link rel="stylesheet" type="text/css" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row head p-3">
+        <div class="col-10">
+          <h2 class="heading">GATHER</h2>
+          <p class="lead sub-heading mb-0">We gather you!</p>
+        </div>
+        <div class="col-2">
+          <div class="close">
+            <i class="fa fa-times close" id="close" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <div class="row p-3 start-gather">
+        <p class="lead">
+          To start gathering your friends. Please click on button below:
+        </p>
+        <button class="btn btn-info" id="gather">Start Gathering</button>
+      </div>
+      <div class="row p-3 success">
+        <p class="alert alert-success" id="generated">
+          https://your domain name/uniqueID
+          <i
+            class="fa fa-clipboard copy"
+            data-clipboard-text="1"
+            aria-hidden="true"
+          ></i>
+        </p>
+        <button class="btn btn-info" id="ending">End Gathering</button>
+      </div>
+      <div class="w-100 border"></div>
+      <div class="row p-3">
+        <p class="lead">
+          To start conversation with your friends. Please click on button below:
+        </p>
+        <a
+          href="https://www.google.com"
+          target="_blank"
+          class="btn btn-info"
+          id="chat"
+          >Start Chat</a
+        >
+      </div>
+      <div class="row p-3 mt-1 foot"></div>
+    </div>
+  </body>
+  <!-- Attaching jQuery and bootstrap.js in Popup -->
+  <script src="vendor/js/jquery.min.js"></script>
+  <script src="vendor/js/bootstrap.min.js"></script>
+  <script src="vendor/js/clipboard.js"></script>
+  <!-- Attaching popup.js in Popup -->
+  <script type="text/javascript" src="popup.js"></script>
+</html>

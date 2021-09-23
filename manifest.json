@@ -1,36 +1,17 @@
 {
-  "name": "Gather",
-  "description": "In a time where people can find themselves spending a lot of their free time online and away relatives or friends, this app can help bring people together while to share an experience while staying within the comfort of their home or daily routine.",
-  "version": "0.0.1",
-  "manifest_version": 3,
-  "permissions": [
-    "declarativeContent",
-    "activeTab",
-    "storage",
-    "tabs"
-  ],
-
-  "page_action": {
-        "default_icon": {
-          "16": "images/16gather.png",
-          "48": "images/48gather.png",
-          "128": "images/128gather.png"
-        },
-        "default_title": "Gather",
-        "default_popup": "popup.html"
-    },
-
-  "background": {
-    "service_worker": "./background.js"
+  "name": "gather",
+  "description": "We gather you, So that you enjoy with your friends!",
+  "version": "1.0",
+  "permissions":["https://*/*","http://*/*","storage"],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/images/icon_48.png",
+    "default_title": "GATHER"
   },
-  "action": {
-    "default_popup": "./popup.html"
+  "icons": {
+        "16": "images/16gather.png",
+        "48": "images/48gather.png",
+        "128": "images/128gather.png"
   },
-
-  "content_scripts": [
-    {
-      "matches": ["https://www.youtube.com/*"],
-      "js": ["content.js"]
-    }
-  ]
+  "manifest_version": 2
 }

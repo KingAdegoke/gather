@@ -1,1 +1,63 @@
 /* creating the actual look of the popup for the extension */
+body {
+    width: 350px;
+    height: 400px;
+}
+
+.heading {
+    text-align: center;
+    font-weight: 100;
+    margin-left: 50px;
+}
+
+.sub-heading {
+    text-align: center;
+    margin-left: 50px;
+}
+
+.head {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.close {
+    position: relative;
+}
+
+#close {
+    position: absolute;
+    top: -8px;
+    right: -18px;
+    cursor: pointer;
+}
+
+#gather {
+    margin-left: 70px;
+    width: 180px;
+}
+
+#chat {
+    margin-left: 70px;
+    width: 180px;
+}
+
+.success {
+    display: none;
+    height: 146px;
+}
+
+#ending {
+    width: 180px;
+    margin-left: 70px;
+}
+
+.foot {
+    background-color: #17a2b8;
+}
+
+.copy {
+    position: absolute;
+    top: 17px;
+    right: 10px;
+    cursor: pointer;
+}
