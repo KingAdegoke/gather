@@ -1,0 +1,56 @@
+h1.nameofteam{
+    color: black;
+    font-size: 60px;
+
+}
+
+header{
+    overflow: hidden;
+    background-color: rgb(11, 138, 138);
+    padding: 20px 10px;
+}
+
+
+body{
+    background: #f2f2f2;
+}
+
+input[type=text], select{
+    width: 100%;
+    padding: 10px 10px;
+    border-style: dotted ;
+    
+}
+
+input[type=email], select{
+    width: 100%;
+    padding: 10px 10px;
+    border-style: dotted ;
+}
+
+input[type=submit] {
+    width: 40%;
+    padding: 12px 12px;
+    border: 1px solid rgb(63, 33, 33);
+    color: white;
+    background-color: rgb(10, 83, 83);
+}
+
+div {
+     max-width: 40%;
+     background-color: #f2f2f2; 
+     padding: 30px; 
+     border: 1px black;
+     border-radius: 30%;
+}
+
+.signpage{
+    position: relative;
+}
+
+.signpage img{
+    position: absolute;
+    max-width: 30%;
+    left: 50%;
+    top: 6%;
+}
