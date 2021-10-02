@@ -1,8 +1,7 @@
-<!-- default page for gather extension -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>devAims</title>
+    <title>GATHER</title>
     <!-- Attaching bootsrap.css and Font Awesome Icons in Popup -->
     <link
       rel="stylesheet"
@@ -47,25 +46,32 @@
         <button class="btn btn-info" id="ending">End Gathering</button>
       </div>
       <div class="w-100 border"></div>
-      <div class="row p-3">
+      <div class="row p-3" id="start-chat">
         <p class="lead">
           To start conversation with your friends. Please click on button below:
         </p>
-        <a
-          href="https://www.google.com"
-          target="_blank"
-          class="btn btn-info"
-          id="chat"
-          >Start Chat</a
-        >
+        <button class="btn btn-info" id="chat">Start Chat</button>
       </div>
       <div class="row p-3 mt-1 foot"></div>
+      <div class="row p-3 chat-area">
+        <div class="close">
+          <i class="fa fa-times close" id="close-chat" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="row message-box">
+        <input
+          type="text"
+          name="message"
+          class="msg"
+          placeholder="Type message here..."
+        />
+        <button class="btn btn-info" id="send">Send</button>
+      </div>
     </div>
   </body>
   <!-- Attaching jQuery and bootstrap.js in Popup -->
   <script src="vendor/js/jquery.min.js"></script>
   <script src="vendor/js/bootstrap.min.js"></script>
-  <script src="vendor/js/clipboard.js"></script>
   <!-- Attaching popup.js in Popup -->
   <script type="text/javascript" src="popup.js"></script>
 </html>

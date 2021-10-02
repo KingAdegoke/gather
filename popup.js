@@ -1,6 +1,6 @@
 /*----- For Closing Popup -----*/
 
-$(".close").click(function() {
+$("#close").click(function() {
     window.close();
 });
 
@@ -9,6 +9,32 @@ $(".close").click(function() {
 $(".copy").click(function() {
     copyDivToClipboard();
     $(this).css("color","#17a2b8");
+});
+
+/*----- On click chat -----*/
+
+$("#chat").click(function() {
+    $("#start-chat").hide();
+    $(".foot").hide();
+    $(".chat-area").show();
+    $(".message-box").show();
+    $(".message-box").css("display","flex");
+    chrome.storage.local.set({
+        "open": "true"
+    });
+});
+
+/*----- To close chat -----*/
+
+$("#close-chat").click(function() {
+    $("#start-chat").show();
+    $(".foot").show();
+    $(".chat-area").hide();
+    $(".message-box").hide();
+    $(".message-box").css("display","none");
+    chrome.storage.local.set({
+        "open": "false"
+    });
 });
 
 /*----- For Link which generates when click on start gathering -----*/
@@ -42,6 +68,19 @@ chrome.storage.local.get(function (res) {
 		$(".success").hide();
     	$(".start-gather").show();
 	}
+    if (res.open == "true") {
+        $("#start-chat").hide();
+        $(".foot").hide();
+        $(".chat-area").show();
+        $(".message-box").show();
+        $(".message-box").css("display","flex");
+    } else {
+        $("#start-chat").show();
+        $(".foot").show();
+        $(".chat-area").hide();
+        $(".message-box").hide();
+        $(".message-box").css("display","none");
+    }
 });
 
 function copyDivToClipboard() {

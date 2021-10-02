@@ -1,4 +1,3 @@
-/* creating the actual look of the popup for the extension */
 body {
     width: 350px;
     height: 400px;
@@ -31,6 +30,13 @@ body {
     cursor: pointer;
 }
 
+#close-chat {
+    position: absolute;
+    top: -8px;
+    right: -2px;
+    cursor: pointer;
+}
+
 #gather {
     margin-left: 70px;
     width: 180px;
@@ -60,4 +66,26 @@ body {
     top: 17px;
     right: 10px;
     cursor: pointer;
+}
+
+.message-box {
+    height: 32px;
+    display: none;
+}
+
+.chat-area {
+    height: 146px;
+    display: none;
+}
+
+.msg {
+    width: 288.5px;
+    outline: none;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid black;
+}
+
+#send {
+    border-radius: 0;
 }
