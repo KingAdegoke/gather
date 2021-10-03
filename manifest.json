@@ -9,7 +9,11 @@
   },
   "browser_action": {
     "default_popup": "popup.html",
+<<<<<<< HEAD
     "default_icon": "/images/48gather.png",
+=======
+    "default_icon": "images/48gather.png",
+>>>>>>> 31c6d3c69c68b7d483a2957e0a16d864c3742933
     "default_title": "GATHER"
   },
   "content_scripts": [
