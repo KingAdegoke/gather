@@ -22,6 +22,5 @@
     "16": "images/16gather.png",
     "48": "images/48gather.png",
     "128": "images/128gather.png"
-  },
-  "manifest_version": 2
+  }
 }
