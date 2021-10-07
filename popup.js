@@ -1,3 +1,17 @@
+/*----- Send Message on opening of a popup to get updated url and set and save this url in local storage of chrome extension -----*/
+
+chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, { msg: "getUrl" }, function (response) {
+        console.log(response);
+        if (response.indexOf("https://www.youtube.com/watch") > -1) {
+            $("#generated").text(response);
+            chrome.storage.local.set({
+                "link": response
+            });
+        }
+    });
+});        
+
 /*----- For Closing Popup -----*/
 
 $("#close").click(function() {
@@ -37,13 +51,29 @@ $("#close-chat").click(function() {
     });
 });
 
-/*----- For Link which generates when click on start gathering -----*/
+/*----- Send Message to content.js for the Link which generates when click on start gathering -----*/
 
 $("#gather").click(function() {
-    $(".success").show();
-    $(".start-gather").hide();
-    chrome.storage.local.set({
-    	"active": "true"
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { msg: "getUrl" }, function (response) {
+            console.log(response);
+            if (response.indexOf("https://www.youtube.com/watch") > -1) {
+                $("#generated").text(response);
+                $(".success").show();
+                $(".start-gather").hide();
+                chrome.storage.local.set({
+                    "active": "true",
+                    "link": response
+                });
+            } else {
+                $(".error").show();
+                $(".start-gather").hide();
+                setTimeout(function () {
+                    $(".error").hide();
+                    $(".start-gather").show();
+                }, 6000);
+            }
+        });
     });
 });
 
@@ -81,7 +111,12 @@ chrome.storage.local.get(function (res) {
         $(".message-box").hide();
         $(".message-box").css("display","none");
     }
+    if (res.link !== undefined) {
+        $("#generated").text(res.link);
+    }
 });
+
+/*----- to copy link to clipboard -----*/
 
 function copyDivToClipboard() {
     var range = document.createRange();

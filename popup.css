@@ -49,6 +49,10 @@ body {
 
 .success {
     display: none;
+}
+
+.error {
+    display: none;
     height: 146px;
 }
 
@@ -63,8 +67,8 @@ body {
 
 .copy {
     position: absolute;
-    top: 17px;
-    right: 10px;
+    top: 127px;
+    right: 18px;
     cursor: pointer;
 }
 
@@ -88,4 +92,8 @@ body {
 
 #send {
     border-radius: 0;
+}
+
+#generated {
+    line-break: anywhere;
 }
