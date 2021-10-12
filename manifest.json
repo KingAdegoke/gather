@@ -1,20 +1,19 @@
 {
-  "name": "gather",
+  "name": "GATHER",
   "description": "We gather you, So that you enjoy with your friends!",
   "version": "1.0",
-  "manifest_version": 3,
-  "permissions": ["declarativeContent", "activeTab", "storage","tabs"],
   "background": {
-    "service_worker": "./background.js"
+    "scripts": ["background.js"],
+    "persistent": true
   },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": "/images/48gather.png",
+  "permissions":["https://*/*", "http://*/*", "storage", "tabs"],
+  "browser_action": {
+    "default_icon": "images/48gather.png",
     "default_title": "GATHER"
   },
   "content_scripts": [
     {
-      "matches": ["https://www.youtube.com/*"],
+      "matches": ["http://*/*", "https://*/*"],
       "js": ["vendor/js/jquery.min.js", "content.js"]
     }
   ],
@@ -22,5 +21,9 @@
     "16": "images/16gather.png",
     "48": "images/48gather.png",
     "128": "images/128gather.png"
-  }
+  },
+  "web_accessible_resources": [
+    "popup.html"
+  ],
+  "manifest_version": 2
 }

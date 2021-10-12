@@ -2,20 +2,21 @@
 
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { msg: "getUrl" }, function (response) {
-        console.log(response);
-        if (response.indexOf("https://www.youtube.com/watch") > -1) {
+        if (response !== undefined && response.indexOf("https://www.youtube.com/watch") > -1) {
             $("#generated").text(response);
             chrome.storage.local.set({
                 "link": response
             });
-        }
+        } 
     });
 });        
 
 /*----- For Closing Popup -----*/
 
 $("#close").click(function() {
-    window.close();
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+        chrome.tabs.sendMessage(tabs[0].id, { msg: "closePopup" });
+    });        
 });
 
 /*----- copy generated link to clipboard -----*/
@@ -61,6 +62,7 @@ $("#gather").click(function() {
                 $("#generated").text(response);
                 $(".success").show();
                 $(".start-gather").hide();
+                $(".foot").css("height", "32px");
                 chrome.storage.local.set({
                     "active": "true",
                     "link": response
@@ -82,6 +84,7 @@ $("#gather").click(function() {
 $("#ending").click(function() {
     $(".success").hide();
     $(".start-gather").show();
+    $(".foot").css("height", "46px");
     chrome.storage.local.set({
     	"active": "false"
     });
@@ -94,9 +97,11 @@ chrome.storage.local.get(function (res) {
 	if (res.active == "true") {
 		$(".success").show();
     	$(".start-gather").hide();
+        $(".foot").css("height", "32px");
 	} else {
 		$(".success").hide();
     	$(".start-gather").show();
+        $(".foot").css("height", "46px");
 	}
     if (res.open == "true") {
         $("#start-chat").hide();
