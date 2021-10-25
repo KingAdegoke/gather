@@ -30,20 +30,20 @@ $(".copy").click(function() {
 
 $("#chat").click(function() {
     $("#start-chat").hide();
-    $(".foot").hide();
     $(".chat-area").show();
     $(".message-box").show();
     $(".message-box").css("display","flex");
     chrome.storage.local.set({
         "open": "true"
     });
+    window.open("http://localhost:3000");
 });
 
 /*----- To close chat -----*/
 
 $("#close-chat").click(function() {
+    chrome.runtime.sendMessage({ msg: "closeChat" });
     $("#start-chat").show();
-    $(".foot").show();
     $(".chat-area").hide();
     $(".message-box").hide();
     $(".message-box").css("display","none");
@@ -52,7 +52,7 @@ $("#close-chat").click(function() {
     });
 });
 
-/*----- Send Message to content.js for the Link which generates when click on start gathering -----*/
+/*----- Sending message to content.js for the Link which generates when clicked on start gathering -----*/
 
 $("#gather").click(function() {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
@@ -105,13 +105,11 @@ chrome.storage.local.get(function (res) {
 	}
     if (res.open == "true") {
         $("#start-chat").hide();
-        $(".foot").hide();
         $(".chat-area").show();
         $(".message-box").show();
         $(".message-box").css("display","flex");
     } else {
         $("#start-chat").show();
-        $(".foot").show();
         $(".chat-area").hide();
         $(".message-box").hide();
         $(".message-box").css("display","none");

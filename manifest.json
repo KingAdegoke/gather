@@ -3,7 +3,7 @@
   "description": "We gather you, So that you enjoy with your friends!",
   "version": "1.0",
   "background": {
-    "scripts": ["background.js"],
+    "scripts": ["background.js", "jquery.js"],
     "persistent": true
   },
   "permissions":["https://*/*", "http://*/*", "storage", "tabs"],
