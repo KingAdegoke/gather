@@ -2,12 +2,17 @@
 
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     chrome.tabs.sendMessage(tabs[0].id, { msg: "getUrl" }, function (response) {
-        if (response !== undefined && response.indexOf("https://www.youtube.com/watch") > -1) {
+        if (response !== undefined && response.indexOf("https://www.youtube.com/watch") > -1 || response.indexOf("https://www.dailymotion.com/video") > -1) {
             $("#generated").text(response);
             chrome.storage.local.set({
                 "link": response
             });
-        } 
+        }
+        if (response !== undefined && response.indexOf("https://www.dailymotion.com") > -1) {
+            $("body").css("width","331px");
+        } else {
+            $("body").css("width","350px");
+        }
     });
 });        
 
@@ -52,13 +57,13 @@ $("#close-chat").click(function() {
     });
 });
 
-/*----- Sending message to content.js for the Link which generates when clicked on start gathering -----*/
+/*----- Send Message to content.js for the Link which generates when click on start gathering -----*/
 
 $("#gather").click(function() {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         chrome.tabs.sendMessage(tabs[0].id, { msg: "getUrl" }, function (response) {
             console.log(response);
-            if (response.indexOf("https://www.youtube.com/watch") > -1) {
+            if (response.indexOf("https://www.youtube.com/watch") > -1 || response.indexOf("https://www.dailymotion.com/video/") > -1) {
                 $("#generated").text(response);
                 $(".success").show();
                 $(".start-gather").hide();
